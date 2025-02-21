@@ -6,7 +6,7 @@ CREATE TABLE olympic_Data (
     Age INT,
     Height INT,
     Weight INT,
-    Team VARCHAR(25),
+    Team VARCHAR(100),
     NOC CHAR(3),
     Games VARCHAR(50),
     OlympicYear INT,
