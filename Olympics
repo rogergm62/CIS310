@@ -1,7 +1,7 @@
 CREATE TABLE olympic_Data (
     RowID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     ID INT,
-    Name VARCHAR(25),
+    AthName VARCHAR(25),
     Gender CHAR(1),
     Age INT,
     Height INT,
@@ -9,10 +9,10 @@ CREATE TABLE olympic_Data (
     Team VARCHAR(25),
     NOC CHAR(3),
     Games VARCHAR(50),
-    Year INT,
+    OlympicYear INT,
     Season VARCHAR(10),
     City VARCHAR(10),
     Sport VARCHAR(100),
-    Event VARCHAR(100),
+    OlympicEvent VARCHAR(100),
     Medal VARCHAR(10)
 );
