@@ -11,7 +11,7 @@ CREATE TABLE olympic_Data (
     Games VARCHAR(50),
     OlympicYear INT,
     Season VARCHAR(10),
-    City VARCHAR(10),
+    City VARCHAR(20),
     Sport VARCHAR(100),
     OlympicEvent VARCHAR(100),
     Medal VARCHAR(10)
