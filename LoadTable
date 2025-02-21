@@ -1,0 +1,18 @@
+# By default, MySQL may have LOCAL_INFILE disabled for security reasons. You can check it using:
+SHOW VARIABLES LIKE 'local_infile';
+
+# If it returns OFF, enable it temporarily for your session:
+SET GLOBAL local_infile = 1;
+
+# Place the Excel file in the database you created. Windows Path (C:\ProgramData\MySQL\MySQL Server 8.0\Data\dbName) 
+LOAD DATA INFILE 'olympics.csv'
+INTO TABLE olympic_Data
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+( ID, AthName, Gender, @Age, @Height, @Weight, Team, NOC, Games, OlympicYear, Season, City, Sport, OlympicEvent, Medal )
+SET 
+    Age = NULLIF(@Age, 'N/A'),
+    Height = NULLIF(@Height, 'N/A'),
+    Weight = NULLIF(@Weight, 'N/A');
