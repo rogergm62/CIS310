@@ -1,18 +1,24 @@
+#!/usr/bin/env python3
 import subprocess
 import threading
 
 def ping_target():
+    """Function to send 5 ICMP echo requests (pings) to scanme.nmap.org"""
+    print("[*] Running ping test...")
     subprocess.run(["ping", "-c", "5", "scanme.nmap.org"])
 
-def tcp_scan():
-    subprocess.run(["nmap", "-p", "80", "scanme.nmap.org"])
+def quick_nmap_scan():
+    """Function to run a quick Nmap scan (-F scans top 100 ports)"""
+    print("[*] Running quick Nmap scan...")
+    subprocess.run(["nmap", "-F", "scanme.nmap.org"])
 
 # Running both functions in parallel
 threads = []
-for func in [ping_target, tcp_scan]:
+for func in [ping_target, quick_nmap_scan]:
     thread = threading.Thread(target=func)
     thread.start()
     threads.append(thread)
 
+# Wait for both threads to finish
 for thread in threads:
     thread.join()
